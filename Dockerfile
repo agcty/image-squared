@@ -1,6 +1,6 @@
 FROM python:3.7.2-alpine3.8
-COPY requirements.txt ./code/
-WORKDIR /code/
+#COPY requirements.txt ./code/
+WORKDIR /images/
 
 RUN apk update && apk upgrade
 
@@ -12,9 +12,11 @@ RUN apk add --update --no-cache --virtual \
     libffi-dev \
     openssl-dev \
     libxml2-dev \
-    libxslt-dev \
-    && pip install -r requirements.txt
+    libxslt-dev 
+# && pip install -r requirements.txt
 # && apk del build-dependencies
+
+RUN apk add imagemagick
 
 COPY . /code/
 

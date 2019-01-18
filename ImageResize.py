@@ -10,11 +10,10 @@ parser.add_argument("-q", dest="quality", help="define the compressed quality", 
                     type=str)
 args = parser.parse_args()
 
-print("Options: %s %s" % (args.size, args.quality))
-
+print("Options: Size %s, Quality %s" % (args.size, args.quality))
 # Which directory do you want to start with?
 working_dir = os.getcwd()
-target = working_dir + "_Bearbeitet/"
+target = working_dir + "/Bearbeitet/"
 
 # create target directory for non-destructive operation
 try:
