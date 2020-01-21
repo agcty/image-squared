@@ -8,6 +8,8 @@ parser.add_argument("-s", dest="size", help="Define the new size of the picture"
                     type=str)
 parser.add_argument("-q", dest="quality", help="define the compressed quality", default="100",
                     type=str)
+parser.add_argument("-overwrite", dest="overwrite", type=bool,
+                    help="define if files in folder should be overwritten", default=True)
 args = parser.parse_args()
 
 print("Options: Size %s, Quality %s" % (args.size, args.quality))
@@ -24,7 +26,7 @@ else:
     print("Successfully created the directory %s " % target)
 
 
-def resize_images(directory):
+def resize_images_safely(directory):
 
     # define location to save image
     save_to = target + os.path.basename(os.path.normpath(directory))
@@ -50,6 +52,21 @@ def resize_images(directory):
     -path {} \
     -format jpg *.jpg;".format(args.size, args.size, args.quality, '"' + save_to + '"')
 
+    print("Resizing (overwrite) in: %s" % directory)
+    # execeute command
+    os.system(command)
+
+
+def resize_images_overwrite(directory):
+    # define command for resizing
+    command = "mogrify \
+    -shave 5x5 \
+    -gravity center   \
+    -resize {} -extent {} \
+    -interlace Plane \
+    -quality {}% \
+    -format jpg *.*;".format(args.size, args.size, args.quality)
+
     print("Resizing in: %s" % directory)
     # execeute command
     os.system(command)
@@ -64,4 +81,7 @@ for directory in directories:
     os.chdir(directory)
     print("Changing directory: %s" % directory)
     # Run your function
-    resize_images(directory)
+    if(args.overwrite):
+        resize_images_overwrite(directory)
+    else:
+        resize_images_safely(directories)
