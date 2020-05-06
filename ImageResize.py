@@ -4,9 +4,9 @@ import argparse
 # Parse Arguments
 parser = argparse.ArgumentParser(description='Resize images and compress them')
 
-parser.add_argument("-s", dest="size", help="Define the new size of the picture", default="1500x1500",
+parser.add_argument("-s", dest="size", help="Define the new size of the picture", default="2048x2048",
                     type=str)
-parser.add_argument("-q", dest="quality", help="define the compressed quality", default="100",
+parser.add_argument("-q", dest="quality", help="define the compressed quality", default="90",
                     type=str)
 parser.add_argument("-overwrite", dest="overwrite", type=bool,
                     help="define if files in folder should be overwritten", default=True)
