@@ -17,6 +17,9 @@ This script uses imagemagick behind the scenes to actually square images.
 
 ``python path/to/script/ImageSquared.py``
 
+## Example
+
+![example](https://i.imgur.com/ayAdfXr.png)
 
 
 ## Attention ! 
