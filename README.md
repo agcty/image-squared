@@ -1,4 +1,4 @@
-## Image squared
+## Bulk square images for ecommerce
 Bulk transform your images to squares from your command line. Useful for ecommerce.
 
 ![result](https://i.imgur.com/zfWsyra.png)
