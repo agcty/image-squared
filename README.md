@@ -1,6 +1,8 @@
 ## Image squared
 Bulk transform your images to squares from your command line. Useful for ecommerce.
 
+![result](https://i.imgur.com/zfWsyra.png)
+
 ## How to use
 
 This script uses imagemagick behind the scenes to actually square images.
@@ -14,3 +16,8 @@ This script uses imagemagick behind the scenes to actually square images.
 3) Run the script
 
 ``python path/to/script/ImageSquared.py``
+
+
+
+## Attention ! 
+This script will **overwrite** your images so make sure you have a backup ready.
